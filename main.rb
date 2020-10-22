@@ -1,15 +1,12 @@
-def swap(first, second)
-  [second, first]
-end
-
 def bubble_sort(num_arry)
   num_arry.length.times do
     num_arry.each_with_index do |value, index|
       next unless index < num_arry.length - 1
 
-      next unless value > num_arry[index + 1]
-
-      num_arry[index], num_arry[index + 1] = swap(value, num_arry[index + 1])
+      if value > num_arry[index + 1]
+        num_arry[index] = num_arry[index + 1]
+        num_arry[index + 1] = value
+      end
     end
   end
 
@@ -25,11 +22,14 @@ def bubble_sort_by(str_arry)
 
       sort_value = yield(value, str_arry[index + 1])
 
-      str_arry[index], str_arry[index + 1] = swap(value, str_arry[index + 1]) if sort_value.positive?
+      if sort_value.positive?
+        str_arry[index] = str_arry[index + 1]
+        str_arry[index + 1] = value
+      end
     end
   end
 
   str_arry
 end
 
-p bubble_sort_by(['to', 'length', 'with', 'i']) { |left, right| left.length - right.length }
+p bubble_sort_by(%w[to length with i]) { |left, right| left.length - right.length }
