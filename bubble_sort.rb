@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 def swap(first, second)
-  return second, first
+  [second, first]
 end
 
 def bubble_sort(num_arry)
@@ -11,12 +9,11 @@ def bubble_sort(num_arry)
 
       next unless value > num_arry[index + 1]
 
-      num_arry[index], num_arry[index+1] = swap(value, num_arry[index+1])
-
+      num_arry[index], num_arry[index + 1] = swap(value, num_arry[index + 1])
     end
   end
 
-  return num_arry
+  num_arry
 end
 
 p bubble_sort([10, 6, 4, 3, 8, 9, 2, 5, 2, 13, 12, 16, 8])
