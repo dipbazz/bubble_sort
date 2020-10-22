@@ -17,3 +17,20 @@ def bubble_sort(num_arry)
 end
 
 p bubble_sort([10, 6, 4, 3, 8, 9, 2, 5, 2, 13, 12, 16, 8])
+
+
+def bubble_sort_by(str_arry)
+  str_arry.length.times do
+    str_arry.each_with_index do |value, index|
+      next unless index < str_arry.length - 1
+
+      next unless value.length > str_arry[index + 1].length
+
+      str_arry[index], str_arry[index + 1] = swap(value, str_arry[index + 1])
+    end
+  end
+
+  str_arry
+end
+
+p bubble_sort_by(['to', 'length', 'with', 'i'])
