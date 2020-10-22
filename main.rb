@@ -32,4 +32,4 @@ def bubble_sort_by(str_arry)
   str_arry
 end
 
-p bubble_sort_by(%w[to length with i]) { |left, right| left.length - right.length }
+p bubble_sort_by(%w[hi hello hey]) { |left, right| left.length - right.length }
